@@ -1,28 +1,27 @@
-import { useState } from 'react'
+import React from 'react';
+import Navbar from './components/Navbar.jsx';
+import Hero from './components/Hero.jsx';
+import ProductGrid from './components/ProductGrid.jsx';
+import Footer from './components/Footer.jsx';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="min-h-screen bg-neutral-50 text-neutral-900 selection:bg-black selection:text-white">
+      <Navbar />
+      <main>
+        <Hero />
+        <section id="products" className="container mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">New Arrivals</h2>
+              <p className="text-neutral-600 mt-1">Curated eco-luxe essentials designed for everyday elegance.</p>
+            </div>
+            <a href="#products" className="hidden sm:inline-flex text-sm font-medium text-neutral-700 hover:text-black">View all</a>
+          </div>
+          <ProductGrid />
+        </section>
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
-
-export default App
